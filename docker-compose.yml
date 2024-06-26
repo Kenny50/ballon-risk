@@ -1,0 +1,12 @@
+version: "3"
+services:
+  express:
+    image: ghcr.io/kenny50/ballon:dev
+    container_name: ballon
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
