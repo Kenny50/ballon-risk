@@ -5,7 +5,7 @@ const port = 3000;
 
 // In-memory storage for user data (replace with database for production)
 const users = {};
-const range = 10
+const range = 64
 app.use(express.json()); // Enable parsing JSON request bodies
 app.use(cors())
 function shuffle(array) {
@@ -83,7 +83,7 @@ app.get('/pump', (req, res) => {
         user.currentBallon.isExploded = true;
         user.currentBallon.balance = 0; // Reset balance on explosion
     } else {
-        user.currentBallon.balance += 0.005; // Earn 0.5 cents
+        user.currentBallon.balance += 0.05; // Earn 0.5 cents
         user.currentBallon.pumpCount++;
         user.currentBallon.explodeArray = shuffle(explodeArray)
     }
